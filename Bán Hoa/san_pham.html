@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sản Phẩm - Cửa Hàng Bán Hoa</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #ff4081;
+      color: rgb(0, 0, 0);
+    }
+    .logo img {
+      height: 50px;
+    }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .menu li a {
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: rgb(255, 255, 255);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-info h3 {
+      margin: 10px 0 5px;
+    }
+    .product-info p {
+      color: #555;
+    }
+    .price {
+      font-weight: bold;
+      margin-top: 5px;
+      color: #ff4081;
+    }
+    .add-to-cart {
+      display: inline-block;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    .add-to-cart:hover {
+      background-color: #e73370;
+    }
+    footer {
+      background: #e73370;
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-grid .col {
+      flex: 1 1 200px;
+    }
+    .footer-grid a {
+      color: #ff4081;
+      text-decoration: none;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    /* Ẩn chữ nhưng vẫn giữ nút hiển thị */
+.login-button {
+  background-color: #e73370; /* màu nền nút */
+  width: 100px; /* đặt chiều rộng tùy ý */
+  height: 35px; /* đặt chiều cao tùy ý */
+  border: none;
+  border-radius: 5px;
+  color: transparent; /* ẩn chữ */
+  text-indent: -9999px; /* ẩn văn bản ra ngoài màn hình */
+  cursor: pointer;
+}
+
+/* Nếu muốn hover vẫn đổi màu nền */
+.login-button:hover {
+  background-color: #e73370;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="imgcss/logo.png" alt="Logo" />
+    </div>
+    <ul class="menu">
+      <li><a href="home.html">Trang Chủ</a></li>
+      <li><a href="san_pham.html">Sản Phẩm</a></li>
+      <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+      <li><a href="giohng.html">Giỏ Hàng</a></li>
+      <li><a href="hscn.html">profile<a></li>
+      <li><a href="lienhe.html">Liên Hệ</a></li>
+    </ul>
+    <div class="#">
+      <a href="login.html">Đăng nhập</a>
+  </div>
+    
+  </header>
+
+  <!-- Nội dung sản phẩm -->
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom: 30px;">Tất Cả Sản Phẩm Hoa</h2>
+    <div class="product-grid">
+      
+      <!-- 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/bo-hoa-hong do-cuc-xinh-tinh.jpg" alt="Hoa Hồng Đỏ" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Hồng Đỏ</h3>
+          <p>Thích hợp cho dịp lễ tình nhân.</p>
+          <div class="price">150,000₫ / bó</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/tucau.jpg" alt="Cẩm Tú Cầu" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Cẩm Tú Cầu</h3>
+          <p>Xanh dịu dàng, sang trọng.</p>
+          <div class="price">2,000,000₫ / bó</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/huongduong.jpg" alt="Hướng Dương" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Hướng Dương</h3>
+          <p>Vàng rực rỡ, mang lại may mắn.</p>
+          <div class="price">180,000₫ / bó</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/hoaly.jpg" alt="Hoa Ly" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Ly</h3>
+          <p>Đỏ đẹp, sang chảnh.</p>
+          <div class="price">220,000₫ / bó</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/hoalan.jpg" alt="Hoa Lan" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Lan</h3>
+          <p>Hoa lan tím quý phái.</p>
+          <div class="price">1,222,222,222₫ / chậu</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="imgcss/hoababy.jpg" alt="Hoa Baby" />
+        </div>
+        <div class="product-info">
+          <h3>Hoa Baby</h3>
+          <p>Nhẹ nhàng, tinh tế.</p>
+          <div class="price">1,220,000₫ / bó</div>
+          <button class="add-to-cart">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="col">
+        <h4>Liên hệ</h4>
+        <p>Shop Bán Hoa Tươi Đẹp</p>
+        <p>Địa chỉ: Số 123 Đường Hoa Hồng, Hà Nội</p>
+        <p>Điện thoại: 024.1234.5678</p>
+        <p>Email: hoa@hoa.vn</p>
+      </div>
+      <div class="col">
+        <h4>Thông tin</h4>
+        <p><a href="#">Giới thiệu</a></p>
+        <p><a href="#">Sản Phẩm</a></p>
+        <p><a href="#">Hỏi đáp</a></p>
+      </div>
+      <div class="col">
+        <h4>Giờ Mở Cửa</h4>
+        <p>Thứ 2 - Thứ 6: 6h - 21h</p>
+        <p>Thứ 7, Chủ nhật: 24/24</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Shop Bán Hoa Tươi Đẹp. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript xử lý nút -->
+  <script>
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        // Ở đây bạn có thể lưu vào localStorage hoặc gửi request tới server
+      });
+    });
+  </script>
+</body>
+</html>

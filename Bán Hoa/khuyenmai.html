@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khuyến Mãi - Shop Hoa</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #e91e63;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu li a:hover {
+      background-color: #c2185b;
+    }
+
+    header > div:last-child a {
+      background-color: white;
+      color: #e91e63;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    header > div:last-child a:hover {
+      background-color: #c2185b;
+      color: white;
+    }
+
+    /* Content */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #e91e63;
+    }
+
+    .promotion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .promo-card {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .promo-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .promo-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .promo-info h3 {
+      margin: 0;
+      color: #e91e63;
+      font-size: 18px;
+    }
+
+    .promo-info .old-price {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .promo-info .new-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4caf50;
+    }
+
+    .badge-sale {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .coupon {
+      background-color: #ffecb3;
+      border: 2px dashed #fbc02d;
+      color: #795548;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 30px 0;
+    }
+
+    footer {
+  background: #e73370;
+  color: white;
+  padding: 40px 20px; /* padding rộng hơn để đẹp */
+  width: 100%; /* đảm bảo full width */
+  box-sizing: border-box;
+}
+
+/* Căn giữa nội dung bên trong footer */
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px; /* giới hạn nội dung */
+  margin: 0 auto; /* căn giữa nội dung */
+}
+
+    .footer-grid .col {
+      flex: 1 1 200px;
+    }
+    .footer-grid a {
+      color: #ff4081;
+      text-decoration: none;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    /* Ẩn chữ nhưng vẫn giữ nút hiển thị */
+.login-button {
+  background-color: #e73370; /* màu nền nút */
+  width: 100px; /* đặt chiều rộng tùy ý */
+  height: 35px; /* đặt chiều cao tùy ý */
+  border: none;
+  border-radius: 5px;
+  color: transparent; /* ẩn chữ */
+  text-indent: -9999px; /* ẩn văn bản ra ngoài màn hình */
+  cursor: pointer;
+}
+
+/* Nếu muốn hover vẫn đổi màu nền */
+.login-button:hover {
+  background-color: #e73370;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="imgcss/logo.png" alt="Logo">
+    </div>
+    <ul class="menu">
+      <li><a href="home.html">Trang Chủ</a></li>
+      <li><a href="san_pham.html">Sản Phẩm</a></li>
+      <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+      <li><a href="giohng.html">Giỏ Hàng</a></li>
+      <li><a href="hscn.html">profile<a></li>
+      <li><a href="lienhe.html">Liên Hệ</a></li>
+    </ul>
+    <div>
+      <a href="login.html">Đăng nhập</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2 class="title">Khuyến Mãi Đặc Biệt</h2>
+
+    <div class="coupon">
+      🎉 Nhập mã <strong>HOADEP20</strong> để được giảm ngay 20% đơn hàng từ 500.000₫!
+    </div>
+
+    <div class="promotion-grid">
+      <div class="promo-card">
+        <div class="badge-sale">-25%</div>
+        <div class="promo-image">
+          <img src="imgcss/bo-hoa-hong do-cuc-xinh-tinh.jpg" alt="Hoa Hồng Đỏ">
+        </div>
+        <div class="promo-info">
+          <h3>Hoa Hồng Đỏ</h3>
+          <div class="old-price">150.000₫</div>
+          <div class="new-price">112.500₫</div>
+          <button class="add-to-cart" data-name="Hoa Hồng Đỏ" data-price="112500" data-img="imgcss/bo-hoa-hong do-cuc-xinh-tinh.jpg">🛒 Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+    
+      <div class="promo-card">
+        <div class="badge-sale">-20%</div>
+        <div class="promo-image">
+          <img src="imgcss/huongduong.jpg" alt="Hoa Hướng Dương">
+        </div>
+        <div class="promo-info">
+          <h3>Hoa Hướng Dương</h3>
+          <div class="old-price">180.000₫</div>
+          <div class="new-price">144.000₫</div>
+          <button class="add-to-cart" data-name="Hoa Hướng Dương" data-price="144000" data-img="imgcss/huongduong.jpg">🛒 Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+    
+      <div class="promo-card">
+        <div class="badge-sale">-30%</div>
+        <div class="promo-image">
+          <img src="imgcss/hoaly.jpg" alt="Hoa Ly">
+        </div>
+        <div class="promo-info">
+          <h3>Hoa Ly</h3>
+          <div class="old-price">220.000₫</div>
+          <div class="new-price">154.000₫</div>
+          <button class="add-to-cart" data-name="Hoa Ly" data-price="154000" data-img="imgcss/hoaly.jpg">🛒 Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+    </div>
+    
+
+    <footer>
+      <div class="footer-grid">
+          <div class="col">
+              <h4>Liên hệ</h4>
+              <p>Shop Bán Hoa Tươi Đẹp</p>
+              <p>Địa chỉ: Số 123 Đường Hoa Hồng, Hà Nội</p>
+              <p>Điện thoại: 024.1234.5678</p>
+              <p>Email: hoa@hoa.vn</p>
+          </div>
+          <div class="col">
+              <h4>Thông tin</h4>
+              <p><a href="#">Giới thiệu</a></p>
+              <p><a href="#">Sản Phẩm</a></p>
+              <p><a href="#">Hỏi đáp</a></p>
+          </div>
+          <div class="col">
+              <h4>Giờ Mở Cửa</h4>
+              <p>Thứ 2 - Thứ 6: 6h - 21h</p>
+              <p>Thứ 7, Chủ nhật: 24/24</p>
+          </div>
+      </div>
+      <div class="copyright">
+          &copy; 2025 Shop Bán Hoa Tươi Đẹp. All rights reserved.
+      </div>
+  </footer>
+  <script>
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        let name = this.dataset.name;
+        let price = parseInt(this.dataset.price);
+        let img = this.dataset.img;
+  
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let existingProduct = cart.find(item => item.name === name);
+  
+        if (existingProduct) {
+          existingProduct.quantity += 1;
+        } else {
+          cart.push({ name, price, img, quantity: 1 });
+        }
+  
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert("Đã thêm " + name + " vào giỏ hàng!");
+      });
+    });
+  </script>
+  
+</body>
+</html>

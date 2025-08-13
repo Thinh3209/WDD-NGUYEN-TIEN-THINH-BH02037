@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hồ sơ cá nhân - Shop Hoa</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #fdf6f9;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(255,64,129,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff4081;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .info label {
+            font-weight: bold;
+        }
+
+        .info input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e73370;
+        }
+
+        .user-actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header giống trang home -->
+    <header>
+        <div class="logo">
+            <img src="imgcss/logo.png" alt="Logo">
+        </div>
+    
+        <ul class="menu">
+            <li><a href="home.html">Trang Chủ</a></li>
+            <li><a href="san_pham.html">Sản Phẩm</a></li>
+            <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+            <li><a href="giohng.html">Giỏ Hàng</a></li>
+            <li><a href="profile.html">Hồ Sơ</a></li>
+            <li><a href="lienhe.html">Liên Hệ</a></li>
+        </ul>
+        <div class="#">
+            <a href="login.html">Đăng nhập</a>
+        </div>
+    </header>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <h2>Hồ sơ cá nhân</h2>
+        <div class="info">
+            <label>Họ tên:</label>
+            <input type="text" id="fullName">
+            <label>Email:</label>
+            <input type="email" id="email">
+            <label>Tên đăng nhập:</label>
+            <input type="text" id="username" disabled>
+        </div>
+
+        <div class="user-actions">
+            <button class="btn" id="updateBtn">Cập nhật</button>
+            <button class="btn" id="deleteBtn">Xóa tài khoản</button>
+            <button class="btn" id="logoutBtn">Đăng xuất</button>
+        </div>
+    </div>
+
+    <!-- Footer giống trang home -->
+    <footer>
+        <div class="footer-grid">
+            <div class="col">
+                <h4>Liên hệ</h4>
+                <p>Shop Bán Hoa Tươi Đẹp</p>
+                <p>Địa chỉ: Số 123 Đường Hoa Hồng, Hà Nội</p>
+                <p>Điện thoại: 024.1234.5678</p>
+                <p>Email: hoa@hoa.vn</p>
+            </div>
+            <div class="col">
+                <h4>Thông tin</h4>
+                <p><a href="#">Giới thiệu</a></p>
+                <p><a href="#">Sản Phẩm</a></p>
+                <p><a href="#">Hỏi đáp</a></p>
+            </div>
+            <div class="col">
+                <h4>Giờ Mở Cửa</h4>
+                <p>Thứ 2 - Thứ 6: 6h - 21h</p>
+                <p>Thứ 7, Chủ nhật: 24/24</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Shop Bán Hoa Tươi Đẹp. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Lấy currentUser từ localStorage
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+        if(!currentUser){
+            alert("Bạn chưa đăng nhập!");
+            window.location.href = "login.html";
+        } else {
+            document.getElementById('fullName').value = currentUser.fullName;
+            document.getElementById('email').value = currentUser.email;
+            document.getElementById('username').value = currentUser.username;
+        }
+
+        // Cập nhật thông tin
+        document.getElementById('updateBtn').addEventListener('click', function(){
+            let fullName = document.getElementById('fullName').value.trim();
+            let email = document.getElementById('email').value.trim();
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let index = users.findIndex(u => u.username === currentUser.username);
+
+            if(index !== -1){
+                users[index].fullName = fullName;
+                users[index].email = email;
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify(users[index]));
+                alert("Cập nhật thành công!");
+            }
+        });
+
+        // Xóa tài khoản
+        document.getElementById('deleteBtn').addEventListener('click', function(){
+            if(confirm("Bạn có chắc muốn xóa tài khoản này?")){
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                users = users.filter(u => u.username !== currentUser.username);
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.removeItem('currentUser');
+                alert("Tài khoản đã bị xóa!");
+                window.location.href = "home.html";
+            }
+        });
+
+        // Đăng xuất
+        document.getElementById('logoutBtn').addEventListener('click', function(){
+            localStorage.removeItem('currentUser');
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>
